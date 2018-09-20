@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"> 
+    <properties>
+        <property name="LOG_HOME">D:/logs</property>
+        <property name="FILE_NAME">com.tocel.terminal-manager</property>
+        <property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t:%r] [%F:%L] %-5level %logger{36} - %msg%n</property>
+        <property name="ROLLING_FILE_NAME">{FILE_NAME}-%d{yyyy-MM-dd-HH}.log.%i</property>
+        <!-- 日志切割的最小单位 -->
+        <property name="EVERY_FILE_SIZE">10M</property> 
+    </properties>
+    
+    <Appenders>  
+    	<!--输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">  
+         	<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" /> -->
+            <PatternLayout pattern="${LOG_PATTERN}" />  
+        </Console>
+
+        <RollingRandomAccessFile name="DefaultRollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/{FILE_NAME}-${ROLLING_FILE_NAME}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="Trace" onMatch="ACCEPT" />
+            </Filters>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+		
+		<RollingRandomAccessFile name="InfoRollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}-info.log" filePattern="${LOG_HOME}/{FILE_NAME}-${ROLLING_FILE_NAME}-info.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" />
+            </Filters>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+	
+		
+		<RollingRandomAccessFile name="ErrorRollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}-error.log" filePattern="${LOG_HOME}/{FILE_NAME}-${ROLLING_FILE_NAME}-error.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" />
+            </Filters>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+	
+        <Async name="AsyncAppender">
+            <AppenderRef ref="DefaultRollingRandomAccessFile"/>
+            <AppenderRef ref="InfoRollingRandomAccessFile"/>
+            <AppenderRef ref="ErrorRollingRandomAccessFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>  
+        <Logger name="com.tocel" level="DEBUG" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.springframework" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.apache.shiro" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.apache.shiro" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="com.alibaba" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="io.springfox" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="springfox.documentation" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.apache.coyote" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.mybatis.spring" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.hibernate.validator" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Logger name="org.apache.catalina" level="ERROR" additivity="true">  
+            <AppenderRef ref="AsyncAppender" />  
+            <AppenderRef ref="Console" />  
+        </Logger>
+        <Root level="DEBUG">  
+            <AppenderRef ref="Console" />  
+            <AppenderRef ref="AsyncAppender" />  
+        </Root>  
+    </Loggers>  
+</Configuration>
