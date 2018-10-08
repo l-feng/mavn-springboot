@@ -11,6 +11,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -23,24 +24,29 @@ public class I18nConfig extends WebMvcConfigurerAdapter{
 		@Value("${spring.messages.language}") //
 		private String language;//默认配置语言
 	
-	@Bean
-	public LocaleResolver localeResolver() {
-		CookieLocaleResolver slr = new CookieLocaleResolver();
-		slr.setDefaultLocale(new Locale(language));
-		slr.setCookieMaxAge(3600);// 设置cookie有效期.
-		return slr;
-		}
-
-//    @Bean
-//    public LocaleChangeInterceptor localeChangeInterceptor() {
-//        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-//        // 参数名
-//        //lci.setParamName("lang");
-//        return lci;
-//    }
+		
+  //第一种实现方式
+//	@Bean
+//	public LocaleResolver localeResolver() {
+//		CookieLocaleResolver slr = new CookieLocaleResolver();
+//		slr.setDefaultLocale(new Locale(language));
+//		slr.setCookieMaxAge(3600);// 设置cookie有效期.
+//		return slr;
+//		}
+	
+//  @Bean
+//   public LocaleResolver localeResolver() {
+//      SessionLocaleResolver resolver = new SessionLocaleResolver();
+//      //这里通过设置China.US可以进行中英文转化
+//      resolver.setDefaultLocale(new Locale(language));
 //
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(localeChangeInterceptor());
-//    }
+//      return resolver;
+//   }
+		@Bean
+	    public LocaleResolver localeResolver() {
+	    FixedLocaleResolver slr = new FixedLocaleResolver();
+	    slr.setDefaultLocale(new Locale(language));
+	    return slr;
+	    }
+
 }

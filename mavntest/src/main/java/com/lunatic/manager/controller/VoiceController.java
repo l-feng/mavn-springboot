@@ -29,7 +29,6 @@ public class VoiceController {
 	
 
 	@RequestMapping(value = "/terminal/getVoice", method = RequestMethod.GET)
-	@ApiOperation(value = "获取voice", notes = "获取voice")
 	@ResponseBody
 	public ResultDTO getVoice() {
 		VoiceConfig voice = iVoiceConfigService.selectVoiceConfig();
