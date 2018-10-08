@@ -1,11 +1,4 @@
-/**    
-* @Title: TerminalController.java  
-* @Package com.tocel.multimedia.manage.controller  
-* @Description: TODO(用一句话描述该文件做什么)  
-* @author 彭佳俊     
-* @date 2018年4月19日 下午2:21:04  
-* @version V3.0    
-*/
+
 
 package com.lunatic.manager.controller;
 

@@ -1,11 +1,3 @@
-/**    
- * @Title: DeviceController.java  
- * @Package com.tocel.partrol.manage.controller  
- * @Description: TODO(用一句话描述该文件做什么)  
- * @author 彭佳俊     
- * @date 2018年4月10日 下午3:06:31  
- * @version V2.0    
- */
 
 package com.lunatic.manager.controller;
 

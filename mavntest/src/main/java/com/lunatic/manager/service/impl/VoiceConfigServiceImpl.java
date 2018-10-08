@@ -1,12 +1,4 @@
 
-/**    
-* @Title: VoiceConfigServiceImpl.java  
-* @Package com.tocel.multimedia.manage.service.impl  
-* @Description: TODO(用一句话描述该文件做什么)  
-* @author 刘峰    
-* @date 2018年4月27日 下午4:31:50  
-* @version V3.0    
-*/  
 
 package com.lunatic.manager.service.impl;
 
@@ -21,15 +13,6 @@ import com.lunatic.manager.service.IVoiceConfigService;
 
 
 
-
-/**    
- * @Title: VoiceConfigServiceImpl.java  
- * @Package com.tocel.multimedia.manage.service.impl  
- * @Description: TODO(用一句话描述该文件做什么)  
- * @author 刘峰    
- * @date 2018年4月27日 下午4:31:50  
- * @version V2.0    
- */
 @Service("iVoiceConfigService")
 public class VoiceConfigServiceImpl implements IVoiceConfigService{
 
