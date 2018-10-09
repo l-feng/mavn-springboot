@@ -1,11 +1,4 @@
-/**    
- * @Title: DeviceManageServiceImpl.java  
- * @Package com.tocel.partrol.manage.service.impl  
- * @Description: TODO(用一句话描述该文件做什么)  
- * @author 彭佳俊     
- * @date 2018年4月10日 下午3:30:14  
- * @version V2.0    
- */
+
 
 package com.lunatic.manager.service.impl;
 

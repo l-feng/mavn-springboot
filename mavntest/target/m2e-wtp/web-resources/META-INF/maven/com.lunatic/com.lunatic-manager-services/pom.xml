@@ -177,6 +177,11 @@
 			<artifactId>poi</artifactId>
 			<version>3.7</version>
 		</dependency>
+		<dependency>
+			<groupId>ch.ethz.ganymed</groupId>
+			<artifactId>ganymed-ssh2</artifactId>
+			<version>build209</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>com.lunatic-manager-services</finalName>
@@ -197,7 +202,7 @@
 			</plugin>
 		</plugins>
 
-		
+
 
 	</build>
 

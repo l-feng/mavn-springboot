@@ -35,7 +35,6 @@ import com.lunatic.manager.service.DeviceService;
 
 @Controller
 @RequestMapping("/wapi")
-@Api(consumes = "application/json", produces = "application/json", protocols = "http", value = "设备管理")
 public class DeviceController extends BaseController {
 
 
@@ -45,7 +44,6 @@ public class DeviceController extends BaseController {
 
 	
 	@RequestMapping(value = "/device/getAllDevice", method = RequestMethod.GET)
-	@ApiOperation(value = "查询所有的设备信息", notes = "查询所有的设备信息")
 	@ResponseBody
 	public ResultDTO getAllDevice() {
 		try {

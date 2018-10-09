@@ -1,10 +1,4 @@
-/*
- * @(#)com.tocel.framework.dto
- * @(#)ResultDTO.java	2018年3月26日
- * 
- * Copyright © 2001-2012, All rights reserved.
- * Tocel Information Technology ( Group ) Co., Ltd.
- */
+
 package com.lunatic.manager.dto;
 
 

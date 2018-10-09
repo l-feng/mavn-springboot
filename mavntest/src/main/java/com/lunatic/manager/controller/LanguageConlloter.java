@@ -21,7 +21,6 @@ public class LanguageConlloter {
 	
 	
 	@RequestMapping(value ="/Language", method = RequestMethod.GET)
-	@ApiOperation(value = "查询所有的设备信息", notes = "查询所有的设备信息")
 	@ResponseBody
 	public ResultDTO testLanguage() {
 	String welcome = messageSourceUtil.getMessage("welcome");
